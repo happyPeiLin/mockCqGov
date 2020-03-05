@@ -1,0 +1,135 @@
+body,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+table,
+td,
+img,
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html,
+body {
+    min-width: 1200px;
+}
+
+
+body {
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {}
+
+a:visited {}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: underline;
+}
+
+/* 自定义初始css */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.re {
+    position: relative;
+}
+
+.ab {
+    position: absolute;
+}
+
+.bl {
+    display: block;
+}
+
+.in {
+    display: inline;
+}
+
+.ib {
+    display: inline-block;
+}
+
+.vt {
+    vertical-align: top;
+}
+
+input,
+button,
+text {
+    vertical-align: top;
+    outline: none;
+    border: none;
+}
+
+.zauto {
+    margin: 0 auto;
+}
+
+
+/* 本项目特例main.css */
+
+.body{
+    min-width: 120px;
+}
+.centerWidth {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.w1200{
+    width: 1200px;
+}
+
+.border {
+    border: 1px solid #bfbfbf;
+    /* border: 1px solid black; */
+}
