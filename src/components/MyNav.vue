@@ -1,19 +1,14 @@
 <template>
   <div class="my-main">
-    <div class="my-nav zauto re">
-      <p
-        style="color:red; position:absolute; left:100px;top:20px; font-size:5px;  display:block"
-      >已开发</p>
-      <p
-        style="color:red; position:absolute; left:575px;top:20px; font-size:5px;  display:block"
-      >已开发</p>
+    <div class="my-nav zauto re" id="father">
+      <span :class="{homeB: changeCur === 0}"></span>
       <div
         v-for="(item,index) in navList"
         :key="index"
         :class="{cur:changeCur === index}"
         @mouseover="curs(index)"
       >
-        <a :class="{cur:changeCur === index}" href="/">{{item.name}}</a>
+        <a :class="{cur:changeCur === index,}" :id="item.memo" href="/">{{item.name}}</a>
       </div>
     </div>
     <div class="slimBar"></div>
@@ -65,11 +60,11 @@
     </div>
 
     <div class="change2 zauto" v-show="changeCur === 1">
-      <h1>change2暂未开发</h1>
+      <zfld></zfld>
     </div>
 
     <div class="change2 zauto" v-show="changeCur === 2">
-      <h1>change3暂未开发</h1>
+      <cqfz></cqfz>
     </div>
     <div class="change2 zauto" v-show="changeCur === 3">
       <div class="change4l ib vt">政府信息公开</div>
@@ -116,21 +111,26 @@
       </div>
     </div>
     <div class="change2 zauto" v-show="changeCur === 4">
-      <h1>change5暂未开发</h1>
+      <ykb></ykb>
     </div>
     <div class="change2 zauto" v-show="changeCur === 5">
-      <h1>change6暂未开发</h1>
+      <zsyz></zsyz>
     </div>
     <div class="change2 zauto" v-show="changeCur === 6">
-      <h1>change7暂未开发</h1>
+      <cqsj></cqsj>
     </div>
     <div class="change2 zauto" v-show="changeCur === 7">
-      <h1>change8暂未开发</h1>
+      <hdjl></hdjl>
     </div>
   </div>
 </template>
 
 <style lang="scss">
+#yes{
+  // text-align: left !important;
+  // font-size: 30px !important;
+  margin-left: 30px;
+}
 .my-main {
   min-width: 1200px;
   margin: 0 auto;
@@ -163,19 +163,30 @@
 
 .my-nav span {
   background: url("../assets/home2.png") no-repeat;
+  position: absolute;
   width: 23px;
   height: 21px;
   left: 35px;
   top: 17px;
 }
+
+.homeB {
+  background: url("../assets/home.png") no-repeat !important;
+  position: absolute;
+  width: 23px;
+  height: 21px;
+  left: 35px;
+  top: 17px;
+}
+
 .cur {
   background-color: #275293 !important;
   color: white !important;
 }
 
-.cur span {
-  background: url("../assets/home.png") no-repeat;
-}
+// .cur span {
+//   background: url("../assets/home.png") no-repeat;
+// }
 
 .slimBar {
   width: 100%;
@@ -317,14 +328,14 @@ el-carousel-item {
   display: inline;
 }
 
-.crBottom a:hover{
+.crBottom a:hover {
   text-decoration: underline;
 }
 // 复制自cq change
 
 .change2 {
   width: 1200px;
-  height: 300px;
+  height: 330px;
   margin: 15px auto !important;
 }
 
@@ -472,6 +483,13 @@ el-carousel-item {
 </style>
 
 <script>
+import cqfz from "./NavSon/cqfz";
+import ykb from "./NavSon/ykb";
+import zsyz from "./NavSon/zsyz";
+import cqsj from "./NavSon/cqsj";
+import hdjl from "./NavSon/hdjl";
+import zfld from "./NavSon/zfld";
+
 import lkq from "../assets/lkq.jpg";
 import xjp from "../assets/xjp.jpg";
 import zy from "../assets/zhiyuan.jpg";
@@ -490,6 +508,7 @@ import ttxxr4 from "../assets/ttxr4.png";
 import ttxxr5 from "../assets/ttxr5.jpg";
 
 export default {
+  components: { cqfz, ykb, zsyz, cqsj, hdjl, zfld },
   data: () => {
     return {
       changeCur: 0,
@@ -597,20 +616,19 @@ export default {
         }
       ],
       navList: [
-        { name: "首页" },
-        { name: "政府领导" },
-        { name: "重庆发展" },
-        { name: "政务公开" },
-        { name: "渝快办" },
-        { name: "招商引资" },
-        { name: "重庆数据" },
-        { name: "互动交流" }
+        { name: "首页",memo:"yes" },
+        { name: "政府领导",memo:"no" },
+        { name: "重庆发展" ,memo:"no" },
+        { name: "政务公开",memo:"no"  },
+        { name: "渝快办" ,memo:"no" },
+        { name: "招商引资" ,memo:"no" },
+        { name: "重庆数据" ,memo:"no" },
+        { name: "互动交流",memo:"no"  }
       ],
 
       list: [
         {
-          words:
-            "春回大地耕作忙",
+          words: "春回大地耕作忙",
           img: xjp
         },
         { words: "志愿者助力抗疫情", img: lkq },
